@@ -8,10 +8,26 @@ import firebase from 'firebase';
 })
 export class HomePage {
 
+  private userName: any;
+  private userEmail: any;
+  private userId: any;
+
   constructor(
     public navCtrl: NavController, 
     private alertCtrl: AlertController) {
+      this.initPage();
+  }
 
+  initPage(){
+    var user = firebase.auth().currentUser;
+    console.log(user);
+    if (user) {
+      this.userName = user.displayName;
+      this.userEmail = user.email;
+      this.userId = user.uid;
+    } else {
+
+    }
   }
 
   logout() {
