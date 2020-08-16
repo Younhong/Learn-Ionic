@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LoadingController } from 'ionic-angular';
 
 /*
   Generated class for the LoaderProvider provider.
@@ -10,8 +10,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoaderProvider {
 
-  constructor(public http: HttpClient) {
+  private loading : any;
+
+  constructor(public loadingCtrl: LoadingController) {
     console.log('Hello LoaderProvider Provider');
   }
 
+  show() {
+    this.loading = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    this.loading.present();
+  }
+
+  hide() {
+    this.loading.dismiss();
+  }
 }
