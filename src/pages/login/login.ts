@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from '../../pages/signup/signup';
+import * as firebase from 'firebase';
 
 /**
  * Generated class for the LoginPage page.
@@ -29,7 +30,14 @@ export class LoginPage {
   }
 
   login() {
-
+    firebase.auth().signInWithEmailAndPassword(this.account.email, this.account.password)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      var errorMessage = error.message;
+      console.log(errorMessage);
+    });
   }
 
   signup() {
