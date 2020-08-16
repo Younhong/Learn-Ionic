@@ -12,4 +12,24 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      USER Information
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating color="danger">Name</ion-label>
+        <ion-input type="text" [value]="userName" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="danger">Email</ion-label>
+        <ion-input type="email" [value]="userEmail" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="danger">ID</ion-label>
+        <ion-input type="text" [value]="userId" readonly></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
